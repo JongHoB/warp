@@ -19,7 +19,6 @@ package cli
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/minio/cli"
 	"github.com/minio/pkg/v3/console"
@@ -72,7 +71,7 @@ func mainZip(ctx *cli.Context) error {
 	b := bench.S3Zip{
 		Common:      getCommon(ctx, newGenSource(ctx, "obj.size")),
 		CreateFiles: ctx.Int("files"),
-		ZipObjName:  fmt.Sprintf("%d.zip", time.Now().UnixNano()),
+		ZipObjName:  fmt.Sprintf("%d.zip", 1),
 	}
 	b.Locking = true
 	return runBench(ctx, &b)
